@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { requestPasswordReset, resetPassword } from "@/src/lib/auth-client";
+import { requestPasswordReset } from "@/src/lib/auth-client";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { toast, Toaster } from "sonner";
@@ -28,6 +28,7 @@ export default function ForgotPasswordPage() {
       });
       if (error) {
         toast.error(error.message);
+        console.log(data);
       } else {
         toast.success(
           <div className="text-sm ">

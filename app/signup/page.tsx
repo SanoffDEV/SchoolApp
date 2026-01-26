@@ -45,7 +45,7 @@ export default function SignupPage() {
       if (res.error) {
         setError(res.error.message || "La création du compte a échoué");
       } else {
-        router.push("/dashboard");
+        router.push(`/verification-sent?email=${encodeURIComponent(email)}`);
       }
     } catch (error) {
       setError("Une erreur s'est produite lors de la création du compte");
@@ -54,6 +54,7 @@ export default function SignupPage() {
       setLoading(false);
     }
   };
+
   return (
     <div className=" bg-white flex min-h-screen items-center justify-center">
       <Card className="w-full max-w-md">

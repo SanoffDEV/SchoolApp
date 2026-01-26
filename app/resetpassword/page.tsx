@@ -51,7 +51,7 @@ export default function ResetpasswordPage() {
         toast.error(<div className="text-sm">{resetError.message}</div>);
       } else {
         toast.success(
-          <div className="text-sm">Mot de passe modifié avec succès</div>
+          <div className="text-sm">Mot de passe modifié avec succès</div>,
         );
         setTimeout(() => {
           router.push("/login");

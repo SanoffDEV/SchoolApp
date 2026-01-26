@@ -13,6 +13,7 @@ import { signIn } from "@/src/lib/auth-client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -32,7 +33,16 @@ export default function LoginPage() {
         password,
       });
       if (res.error) {
-        setError(res.error.message || "La connexion au compte a échoué");
+        setError(
+          res.error.message ||
+            "La connexion au compte a échoué, verifiez votre voite mail",
+        );
+        toast.error(
+          <div className="text-sm">
+            Si votre compte n&apos;est pas vérifié, pensez a regardez votre
+            boite mail
+          </div>,
+        );
       } else {
         router.push("/dashboard");
       }
